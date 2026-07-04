@@ -1,8 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 
 // Publishable anon key — safe to ship to the browser.
-const SUPABASE_URL = "https://zqrwvzcxhngrhgzycuaq.supabase.co";
-const SUPABASE_ANON_KEY =
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpxcnd2emN4aG5ncmhnenljdWFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxMTI3ODMsImV4cCI6MjA5ODY4ODc4M30.OR0q3YPYakfMquYjtEsNq3bM4gvVYokVy47KSpy23DQ";
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
