@@ -1,18 +1,25 @@
 import { createClient } from "@supabase/supabase-js";
 
-// Publishable anon key — safe to ship to the browser.
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpxcnd2emN4aG5ncmhnenljdWFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxMTI3ODMsImV4cCI6MjA5ODY4ODc4M30.OR0q3YPYakfMquYjtEsNq3bM4gvVYokVy47KSpy23DQ";
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-  auth: {
-    persistSession: true,
-    autoRefreshToken: true,
-    detectSessionInUrl: true,
-  },
-});
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  throw new Error(
+    "As variáveis VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY não foram encontradas."
+  );
+}
+
+export const supabase = createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY,
+  {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true,
+    },
+  }
+);
 
 export type Device = {
   id: string;
