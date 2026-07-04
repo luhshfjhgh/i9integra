@@ -43,8 +43,8 @@ export function AppSidebar() {
             IM
           </div>
           <div>
-            <div className="font-semibold tracking-tight">IndusMon</div>
-            <div className="text-xs text-muted-foreground">ESP32 Monitor</div>
+            <div className="font-semibold tracking-tight">IntegraColde</div>
+            <div className="text-xs text-muted-foreground"> Monitor 24horas</div>
           </div>
         </div>
       </div>
